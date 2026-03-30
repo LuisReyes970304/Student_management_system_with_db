@@ -2,6 +2,7 @@ from student_management import StudentManagement
 from message import welcome_message_fun, menu_function
 from validation import name_validator, option_validator, student_detail_validator, age_validator, status_validator, program_validator
 
+
 student_list = {}
 
 keep = True

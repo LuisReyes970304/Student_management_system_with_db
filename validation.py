@@ -1,8 +1,7 @@
 from message import invalid_name_message, invalid_option_fun, invalid_detail_fun, invalid_integer, invalid_status, invalid_program_fun
 
 
-def option_validator():
-    validator = True
+def option_validator(validator = True):
     while validator:
         option = input("Choose an option: ").strip()
         if not option or option not in ["1", "2", "3", "4", "5", "6"]:
@@ -13,8 +12,7 @@ def option_validator():
     return option
 
 
-def student_detail_validator():
-    validator = True
+def student_detail_validator(validator = True):
     while validator:
         option = input("Write the student name or id: ").strip().title()
         if not option:
@@ -24,9 +22,8 @@ def student_detail_validator():
             validator = False
     return option
 
-def name_validator():
+def name_validator(validator = True):
     """This function validates the product name, it makes sure the name is not empty and it capitalizes the first letter of the name."""
-    validator = True
     while validator:
         name = input("Write the student name: ").strip().title()
         if not name:
@@ -36,8 +33,7 @@ def name_validator():
             validator = False
     return name
 
-def age_validator():
-    validator = True
+def age_validator(validator = True):
     while validator:
         try:
             age = int(input(f"Write the student age: "))
@@ -50,8 +46,7 @@ def age_validator():
             invalid_integer()
     return age
 
-def status_validator():
-    validator = True
+def status_validator(validator = True):
     while validator:
         option = input("Write status (active/inactive): ").strip()
         if not option or option not in ["inactive", "active"]:
@@ -61,8 +56,7 @@ def status_validator():
             validator = False
     return option
 
-def program_validator():
-    validator = True
+def program_validator(validator = True):
     while validator:
         option = input("Write a program: ").strip().capitalize()
         if not option:
@@ -71,3 +65,5 @@ def program_validator():
         if option: 
             validator = False
     return option
+
+program_validator()
