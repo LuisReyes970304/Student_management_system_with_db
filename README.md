@@ -1,5 +1,5 @@
 <h1>Student Management System With DataBase</h1>
-<p>StudentManagement is an console app that help you out creating a student database that is out-saved in a JSON.file</p>
+<p>StudentManagement is an console app that help you out creating a student database that is out-saved in a JSON file</p>
 <br>
 <p> Lets say that you have a school or you are the person incharged of managing a student data in a school. StudentManagement allow you: </p>
 
