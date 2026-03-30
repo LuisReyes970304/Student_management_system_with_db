@@ -32,6 +32,17 @@
 ![alt text](<student chartflow.png>)
 
 
+<h2>Example</h2>
+<p>The first thing you see is a menu</p>
+
+![alt text](menu.png)
+
+
+<p>So you can choose what you wnat</p>
+
+![alt text](<Show example.png>)
+
+
 <h2>Author</h2>
 
 Luis Reyes Caro  

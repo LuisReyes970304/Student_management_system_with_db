@@ -66,4 +66,3 @@ def program_validator(validator = True):
             validator = False
     return option
 
-program_validator()
