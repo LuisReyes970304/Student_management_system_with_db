@@ -29,20 +29,36 @@ while keep:
         app.check_student_list()
 
     if option == "3":
-        print("\n You chosen: Find a student")
+        print("\nYou chosen: Find a student")
         detail = student_detail_validator()
         app.find_a_student(detail)
 
     if option == "4":
-        print("\n You chosen: Update student Information")
+        print("\nYou chosen: Update student Information")
+        print("Find the student you want to update!\n")
         detail = student_detail_validator()
         student = app.find_a_student(detail)
         if student is not None:
-            app.update_student()
+            name = name_validator()
+            age = age_validator()
+            program = program_validator()
+            status = status_validator()
+            app.update_student(student ,name=name, age=age, program = program, status = status)
+            app.save_data_in_json()
         print("Was not possible updating any information!")
 
     if option == "5":
-        pass
+        print("\nYou chosen: Delete Student")
+        print("Find the student you want to delete!\n")
+        detail = student_detail_validator()
+        student = app.find_a_student(detail)
+        confirmation = input("Are you sure yo want to delete this student? (yes/no): ").lower()
+        if confirmation == "yes":
+            app.delete_student(student)
+            app.save_data_in_json()
+            print("\nStudent deleted successfully!")  
+        if confirmation != "yes":
+            print("Process canceled!")   
 
     if option == "6":
         keep = False

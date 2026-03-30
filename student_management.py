@@ -46,11 +46,12 @@ class StudentManagement:
     
     def find_a_student(self, student_data: str):
         for student_id, student in self.student_list.items():
+            student_id = str(student_id)
             student_name = student["name"]
             student_age = student["age"]
             student_program = student["program"]
             student_status = student["status"]
-            if student_data == str(student_id) or student_data == student_name:
+            if student_data == student_id or student_data == student_name:
                 print(f"student id: .......... {student_id}")
                 print(f"student name: ........ {student_name}")
                 print(f"student age: ......... {student_age}")
@@ -58,18 +59,18 @@ class StudentManagement:
                 print(f"student status: ...... {student_status}")
                 print("****************************************")
                 print("")
-                return self.student_list
+                return student_id
         print("Student not found or student not exist in database\n")
         return None
     
     def update_student(self, student_id, **student_data: dict):
         if student_id in self.student_list:
             self.student_list[student_id] = student_data
-        print(self.student_list)
+            return self.student_list
+        return self.student_list
 
-    def delete_student(self, student_data: str):
-        for student_id, student in self.student_list.items():
-            student_name = student["name"]
-            if student_data == str(student_id) or student_data == student_name:
-                self.student_list.pop()
-        pass
+    def delete_student(self, student_id):
+        if student_id in self.student_list:
+            self.student_list.pop(student_id)
+        return self.student_list
+    

@@ -66,7 +66,7 @@ def program_validator():
     while validator:
         option = input("Write a program: ").strip().capitalize()
         if not option:
-            invalid_status()
+            invalid_program_fun()
             validator = True
         if option: 
             validator = False
