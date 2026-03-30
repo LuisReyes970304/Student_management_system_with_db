@@ -53,7 +53,7 @@ class StudentManagement:
     def find_a_student(self, student_data: str):
         #This method allows looking for a student based on name or id.
         for student_id, student in self.student_list.items():
-            student_id = str(student_id)
+            student_id = student_id
             student_name = student["name"]
             student_age = student["age"]
             student_program = student["program"]
