@@ -12,7 +12,7 @@ class StudentManagement:
         try:
             with open(self.student_db, "r") as file:
                 data = json.load(file)
-                self.student_list.update(data)
+                self.student_list = {int(student_id): student for student_id, student in data.items()}
         except FileNotFoundError:
             with open(self.student_db, "w") as file:
                 json.dump(self.student_list, file)
@@ -27,12 +27,12 @@ class StudentManagement:
     def add_new_student(self, **student_data: dict) -> dict:
         #This method allows creating the new user, which is basically a dict into a dict
         try:
-            last_id = int(next(reversed(self.student_list)))
+            last_id = next(reversed(self.student_list))
             new_id = last_id + 1
         except StopIteration:
             new_id = 0
         self.student_list[new_id] = student_data
-        return student_data
+        return {new_id: student_data}
     
     def check_student_list(self) -> dict:
         #This method SHows in console the information of every single student
@@ -53,12 +53,11 @@ class StudentManagement:
     def find_a_student(self, student_data: str):
         #This method allows looking for a student based on name or id.
         for student_id, student in self.student_list.items():
-            student_id = student_id
             student_name = student["name"]
             student_age = student["age"]
             student_program = student["program"]
             student_status = student["status"]
-            if student_data == student_id or student_data == student_name:
+            if str(student_data) == str(student_id) or student_data == student_name:
                 print(f"student id: .......... {student_id}")
                 print(f"student name: ........ {student_name}")
                 print(f"student age: ......... {student_age}")
@@ -73,7 +72,7 @@ class StudentManagement:
     def update_student(self, student_id, **student_data: dict):
         #This method allows updating the student information.
         if student_id in self.student_list:
-            self.student_list[student_id] = student_data
+            self.student_list[student_id].update(student_data)
             return self.student_list
         return self.student_list
 
