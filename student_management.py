@@ -43,7 +43,7 @@ class StudentManagement:
             student_status = student["status"]
             print(f"student id: .......... {student_id}")
             print(f"student name: ........ {student_name}")
-            print(f"student age: ......... {student_age}")
+            print(f"student age: ......... {student_age} years old") 
             print(f"student course: ...... {student_program}")
             print(f"student status: ...... {student_status}")
             print("****************************************")
@@ -60,7 +60,7 @@ class StudentManagement:
             if str(student_data) == str(student_id) or student_data == student_name:
                 print(f"student id: .......... {student_id}")
                 print(f"student name: ........ {student_name}")
-                print(f"student age: ......... {student_age}")
+                print(f"student age: ......... {student_age} years old")
                 print(f"student course: ...... {student_program}")
                 print(f"student status: ...... {student_status}")
                 print("****************************************")
@@ -73,7 +73,8 @@ class StudentManagement:
         #This method allows updating the student information.
         if student_id in self.student_list:
             self.student_list[student_id].update(student_data)
-            return self.student_list
+            print("Student information updated successfully!")
+            return {student_id: student_data}
         return self.student_list
 
     def delete_student(self, student_id):

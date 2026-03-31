@@ -46,7 +46,6 @@ while keep:
             status = status_validator()
             app.update_student(student ,name=name, age=age, program = program, status = status)
             app.save_data_in_json()
-        print("Was not possible updating any information!")
 
     if option == "5":
         print("\nYou chosen: Delete Student")

@@ -32,7 +32,6 @@ invalid_option = """
 invalid_detail = """
        **********************************
          Invalid option!!!
-         student detail cannot be empty.
        **********************************
          Please try again:
 
